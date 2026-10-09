@@ -10,6 +10,7 @@ footer {
   bottom: 0;
   left: 0;
   transition: transform 0.3s ease;
+  color: black;
 }
 
 footer.hide {
