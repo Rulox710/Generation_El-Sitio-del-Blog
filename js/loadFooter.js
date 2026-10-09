@@ -1,4 +1,6 @@
-fetch("./components/footer.html")
+const DEPTH_FOOTER = window.location.pathname.includes("/pages/") ? "../" : "./";
+
+fetch(`${DEPTH_FOOTER}components/footer.html`)
   .then(response => response.text())
   .then(data => {
     console.log("Footer cargado:", data);

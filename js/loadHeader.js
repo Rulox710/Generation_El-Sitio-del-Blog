@@ -1,10 +1,19 @@
-fetch('./components/header.html')
+const DEPTH_HEADER = window.location.pathname.includes("/pages/") ? "../" : "./";
+
+fetch(`${DEPTH_HEADER}components/header.html`)
   .then(response => response.text())
   .then(data => {
     document.getElementById('header-container').innerHTML = data;
 
     startHeader();
+    setupNavigation();
   });
+
+function setupNavigation() {
+  document.getElementById("home").href = `${DEPTH_HEADER}index.html`;
+  document.getElementById("about").href = `${DEPTH_HEADER}pages/about.html`;
+  document.getElementById("contact").href = `${DEPTH_HEADER}pages/contact.html`;
+}
 
 function startHeader() {
   const ScrollSensibility = 140;
