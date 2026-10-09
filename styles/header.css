@@ -1,0 +1,47 @@
+header {
+  z-index: 20;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  justify-content: space-around;
+  width: 100%;
+  height: fit-content;
+  transition: transform 0.3s ease;
+}
+header::before {
+  content: " ";
+  z-index: -1;
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  left: 0;
+  top: 0;
+  background-color: greenyellow;
+  backdrop-filter: blur(10px);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+header.hide {
+  transform: translateY(-100%);
+}
+header.hide::before {
+  opacity: 0;
+}
+header.show::before {
+  opacity: 1;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+nav > div {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  z-index: 2;
+}
