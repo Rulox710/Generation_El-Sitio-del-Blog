@@ -1,0 +1,37 @@
+.quote-card {
+  position: relative;
+  padding: 2rem 2rem 1.5rem;
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  color: var(--suave);
+  border-radius: 20px;
+  border-left: 6px solid var(--acento);
+  max-width: 700px;
+  overflow: visible;
+}
+
+.quote-card::before {
+  content: "\201C";
+  position: absolute;
+  top: -25px;
+  left: 15px;
+  font-size: 8rem;
+  line-height: 1;
+  font-family: Georgia, serif;
+  color: var(--acento);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.quote-card p {
+  margin: 0;
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.quote-card footer {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--suave);
+}

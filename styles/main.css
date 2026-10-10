@@ -23,7 +23,10 @@ body {
 
 main {
   width: min(1000px, 92%);
-  margin: 32px auto;
+  margin: calc(var(--size--main-navbar) + 20px) auto;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
 }
 main h1 {
   margin: 0 0 8px;
@@ -38,7 +41,7 @@ main p {
   margin-bottom: 28px; color: var(--suave);
 }
 
-.reseñas {
+.squares {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 22px;
