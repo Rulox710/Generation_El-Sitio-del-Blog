@@ -1,5 +1,10 @@
+@import url("./animations.css");
+
 :root{
-  --nav-bar: 60px;
+  --size--main-navbar: 64px;
+  --color--text: black;
+  --color--text-alt: white;
+  --color--border: white;
 }
 
 header {
@@ -19,10 +24,10 @@ header::before {
   z-index: -1;
   position: fixed;
   width: 100%;
-  height: var(--nav-bar);
+  height: var(--size--main-navbar);
   left: 0;
   top: 0;
-  background-color: greenyellow;
+  background-color: rgb(173, 255, 47);
   backdrop-filter: blur(10px);
   opacity: 1;
   transition: opacity 0.3s ease;
@@ -37,15 +42,122 @@ header.show::before {
   opacity: 1;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: var(--nav-bar);
+.svg-navigation {
+  position: absolute;
+  top: 0;
+  left: -25%;
+  z-index: -1;
+  display: none;
 }
+
+nav {
+  width: 100%;
+  height: var(--size--main-navbar);
+}
+
 nav > div {
   display: flex;
+  justify-content: center;
   width: 100%;
-  justify-content: space-around;
   z-index: 2;
+  border: 2px solid var(--color--border);
+  max-height: 64px;
+}
+
+.a__navigation {
+  position: relative;
+  top: 0px;
+  padding: 0 2em;
+  text-decoration: none;
+  display: flex;
+  z-index: 1;
+}
+.a__navigation:focus {
+  outline: none;
+}
+.a__navigation:active > .svg-navigation {
+  display: block;
+}
+.a__navigation:nth-of-type(even) > .svg-navigation {
+  transform: rotate(7deg);
+}
+
+.box__label {
+  display: flex;
+  align-items: center;
+  height: 3em;
+  font-size: 1.3rem;
+  color: var(--color--text);
+}
+.a__navigation:nth-of-type(odd):focus > .box__label,
+.a__navigation:nth-of-type(odd):active > .box__label {
+  animation: tiltBounce .15s ease forwards;
+}
+.a__navigation:nth-of-type(even):focus > .box__label,
+.a__navigation:nth-of-type(even):active > .box__label  {
+  animation: tiltBounce-alt .15s ease forwards;
+}
+
+.a__navigation:focus > .box__label,
+.a__navigation:active > .box__label {
+  color: var(--color--text-alt);
+  text-shadow:
+    -1px -1px 0 var(--color--text),
+    1px -1px 0 var(--color--text),
+    -1px  1px 0 var(--color--text),
+    1px  1px 0 var(--color--text);
+}
+
+/* Evitar para dispositivos sin ratón */
+@media (hover: hover) {
+  .a__navigation:hover > .svg-navigation,
+  .a__navigation:focus > .svg-navigation {
+    display: block;
+  }
+  .a__navigation:hover > .box__label {
+    color: var(--color--text-alt);
+    text-shadow:
+      -1px -1px 0 var(--color--text),
+      1px -1px 0 var(--color--text),
+      -1px  1px 0 var(--color--text),
+      1px  1px 0 var(--color--text);
+  }
+  .a__navigation:nth-of-type(odd):hover > .box__label {
+    animation: tiltBounce .15s ease forwards;
+  }
+  .a__navigation:nth-of-type(even):hover > .box__label {
+    animation: tiltBounce-alt .15s ease forwards;
+  }
+}
+
+@media (max-width: 600px) {
+  #button--contact {
+    display: none;
+  }
+}
+@media (max-width: 505px) {
+  #button--about {
+    display: none;
+  }
+}
+
+.polygon--jelly {
+  transform-origin: center;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.purple {
+  fill: #552A8A;
+  animation-duration: .45s;
+  animation-name: jelly;
+}
+
+.hidden {
+  display: none;
+}
+.n {
+  animation-name: squish;
+  animation-iteration-count: 1;
+  animation-duration: 0.1s;
+  mix-blend-mode: plus-lighter;
 }

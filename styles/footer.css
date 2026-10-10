@@ -1,10 +1,11 @@
-footer {
+#js-main-footer {
   z-index: 20;
-  justify-content: space-around; /* o center */
+  justify-content: space-around;
   width: 100%;
   align-items: center;
   display: flex;
-  padding: 1rem 2rem;
+  justify-content: space-evenly;
+  height: calc(var(--size--main-navbar) / 2);
   background-color: greenyellow;
   position: fixed;
   bottom: 0;
@@ -13,6 +14,19 @@ footer {
   color: black;
 }
 
-footer.hide {
+#js-main-footer.hide {
   transform: translateY(100%);
+}
+
+#button--contact-alt {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  #button--contact-alt {
+    display: flex;
+  }
+  #direct-mail {
+    display: none;
+  }
 }

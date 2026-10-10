@@ -1,13 +1,18 @@
-const DEPTH_FOOTER = window.location.pathname.includes("/pages/") ? "../" : "./";
+const DEPTH_FOOTER = window.location.pathname.includes('/pages/') ? '../' : './';
 
 fetch(`${DEPTH_FOOTER}components/footer.html`)
   .then(response => response.text())
   .then(data => {
-    console.log("Footer cargado:", data);
-    document.getElementById("footer-container").innerHTML = data;
+    document.getElementById('footer-container').innerHTML = data;
 
     startFooter();
+    setupNavigationFooter();
   });
+
+function setupNavigationFooter() {
+  console.log(document.getElementById('button--contact-alt'));
+  document.getElementById('button--contact-alt').href = `${DEPTH_FOOTER}pages/contact.html`;
+}
 
 function startFooter() {
   const ScrollSensibility = 140;

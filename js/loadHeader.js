@@ -1,4 +1,4 @@
-const DEPTH_HEADER = window.location.pathname.includes("/pages/") ? "../" : "./";
+const DEPTH_HEADER = window.location.pathname.includes('/pages/') ? '../' : './';
 
 fetch(`${DEPTH_HEADER}components/header.html`)
   .then(response => response.text())
@@ -6,13 +6,13 @@ fetch(`${DEPTH_HEADER}components/header.html`)
     document.getElementById('header-container').innerHTML = data;
 
     startHeader();
-    setupNavigation();
+    setupNavigationHeader();
   });
 
-function setupNavigation() {
-  document.getElementById("home").href = `${DEPTH_HEADER}index.html`;
-  document.getElementById("about").href = `${DEPTH_HEADER}pages/about.html`;
-  document.getElementById("contact").href = `${DEPTH_HEADER}pages/contact.html`;
+function setupNavigationHeader() {
+  document.getElementById("button--home").href = `${DEPTH_HEADER}index.html`;
+  document.getElementById("button--about").href = `${DEPTH_HEADER}pages/about.html`;
+  document.getElementById("button--contact").href = `${DEPTH_HEADER}pages/contact.html`;
 }
 
 function startHeader() {
